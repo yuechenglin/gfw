@@ -13,9 +13,13 @@ import Send from './component/send'
 import Buy from './component/buy'
 import My from './component/my'
 
+import Register from './component/Register'
+
+
 import Ershoufang from './component/ershoufang'
 import Xinfang from './component/xinfang'
 import Zufang from './component/zufang'
+
 
 ReactDOM.render(
   <Provider store={store}>
@@ -30,7 +34,9 @@ ReactDOM.render(
 				<Route path="xinfang" title="新房" component={Xinfang}></Route>
 				<Route path="zufang" title="租房" component={Zufang}></Route>
       </Route>
-			
+		
+		 <Route path="/Register/:type"  component={Register}></Route>
+			 
     </Router>
   </Provider>,
   document.getElementById('root')
