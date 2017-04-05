@@ -6,7 +6,10 @@ import BoardMain from './board_main.js'
 class Board extends React.Component {
   constructor(props) {
     super(props)
-
+			this.state = {
+			      list: [<div/>],
+			      list_bottom: [<div/>]
+		  }
   }
 
   render() {
@@ -15,9 +18,57 @@ class Board extends React.Component {
     		 ref="scroller"
 			   usePullRefresh={true}
 			   onRefresh={() => {
-			        // 刷新数据 start
-			        // ...
-			        // 刷新数据 end
+//											       	let url = '/api/list.php'
+//										fetchData(url,function (res) {
+//									//			console.log(res)
+//												let Les = res.tuijian.map(val=>{
+//													//console.log(val.feature)
+//													let reg = val.feature.split("、")
+//													//console.log(reg)
+//													let arr = reg.map(function (i){
+//														return (<span>{i}</span>)
+//													})
+//									//				console.log(arr)
+//													this.setState({
+//												        list_bottom:arr
+//												    })
+//									
+//													return (
+//														<div className="part02">
+//															<img alt="" title="" src={val.img} />
+//															<div className="part02-right">
+//																<h3>{val.lpname}</h3>
+//																<p className="part02-right01">
+//																	<span>{val.minhouse}</span>
+//																	<span>-</span>
+//																	<span>{val.maxhouse}</span>
+//																	<span> ㎡ </span>
+//																	<span>| </span>
+//																	<span>{val.minroom}</span>
+//																	<span>-</span>
+//																	<span>{val.maxroom}</span>
+//																	<span>室</span>
+//																	<span>{val.avgprice}</span>
+//																	<span>元/平</span>
+//																</p>
+//																<p className="part02-right02">
+//																	<span>{val.area} </span>
+//																	<span>{val.address}</span>
+//																</p>
+//																<p className="part02-right03">
+//																	{this.state.list_bottom}
+//																</p>
+//																
+//															</div>
+//														</div>
+//													)
+//												})
+//												
+//												this.setState({
+//											        list: Les
+//											    })
+//									
+//											}.bind(this))
 			
 			        this.refs.scroller.stopRefreshing(true); // 这个调用也可以放在异步操作的回调里之后
     		}}

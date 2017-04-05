@@ -1,6 +1,6 @@
 import React from 'react'
 import fetchData from '../util/util.fetch.js'
-
+import Scroller from '../../component_dev/scroller/src/'
 class Ershoufang extends React.Component {
 	
 	constructor(props) {
@@ -15,7 +15,20 @@ class Ershoufang extends React.Component {
 
 		render() {
 			return (
+				
+			<Scroller scrollY={true}
+    		 ref="scroller"
+			   usePullRefresh={true}
+			   onRefresh={() => {
+			        // 刷新数据 start
+			        // ...
+			        // 刷新数据 end
+			
+			        this.refs.scroller.stopRefreshing(true); // 这个调用也可以放在异步操作的回调里之后
+    		}}
+    		>
 				<div className="m-ershoufang">
+					
 					<ul className="header-list">
 						<li>
 							<select><option>区域</option></select>
@@ -33,6 +46,7 @@ class Ershoufang extends React.Component {
 					
 					{ this.state.list }
 				</div>
+			</Scroller>
 			)
 		}
 

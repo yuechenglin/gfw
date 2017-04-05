@@ -13,7 +13,7 @@ class BoardMain extends React.Component {
 		componentWillMount() {
 		let url = '/api/list.php'
 		fetchData(url,function (res) {
-	//			console.log(res)
+	
 				let Les = res.tuijian.map(val=>{
 					//console.log(val.feature)
 					let reg = val.feature.split("、")
@@ -21,7 +21,7 @@ class BoardMain extends React.Component {
 					let arr = reg.map(function (i){
 						return (<span>{i}</span>)
 					})
-	//				console.log(arr)
+	
 					this.setState({
 				        list_bottom:arr
 				    })

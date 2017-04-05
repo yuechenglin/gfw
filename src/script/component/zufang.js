@@ -1,6 +1,6 @@
 import React from 'react'
 import fetchData from '../util/util.fetch.js'
-
+import Scroller from '../../component_dev/scroller/src/'
 class Zufang extends React.Component {
 	
 	constructor(props) {
@@ -14,21 +14,33 @@ class Zufang extends React.Component {
 	
 	render() {
 		return (
-			<div className="m-zufang">
-				<ul className="header-list">
-					<li>
-						<select><option>区域</option></select>
-					</li>
-					<li>
-						<select><option>租金</option></select>
-					</li>
-					<li>
-						<select><option>户型</option></select>
-					</li>
-				</ul>
+			<Scroller scrollY={true}
+	    		 ref="scroller"
+				   usePullRefresh={true}
+				   onRefresh={() => {
+				        // 刷新数据 start
+				        // ...
+				        // 刷新数据 end
 				
-				{ this.state.list }
-			</div>
+				        this.refs.scroller.stopRefreshing(true); // 这个调用也可以放在异步操作的回调里之后
+	    		}}
+    		>
+				<div className="m-zufang">
+					<ul className="header-list">
+						<li>
+							<select><option>区域</option></select>
+						</li>
+						<li>
+							<select><option>租金</option></select>
+						</li>
+						<li>
+							<select><option>户型</option></select>
+						</li>
+					</ul>
+					
+					{ this.state.list }
+				</div>
+			</Scroller>
 		)
 	}
 	

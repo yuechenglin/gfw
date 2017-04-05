@@ -70,12 +70,12 @@
                 @include flexbox();
                 @include justify-content(flex-start);
                 
-                &:nth-child(0){
+                &:nth-child(1){
                     display:block;
                     line-height:.2rem;
                     height:.2rem;
                     width:.35rem;
-                    border:1px solid green;
+                    border:.01rem solid red;
                 }
             }
             
